@@ -1,51 +1,43 @@
 console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
 let myCollection = [];
-let album1 = {
-  title: 'Sucker',
-  artist: 'Jonas Brothers',
-  yearPublished: '2019'
-}
-let album2 = {
-  title: 'Homecoming',
-  artist: "Kanye West",
-  yearPublished: '2007'
-}
-let album3 = {
-  title: 'Dirt On My Boots',
-  artist: 'Jon Pardi',
-  yearPublished: '2017'
-}
-let album4 = {
-  title: 'Feel It Still',
-  artist: 'Portugal',
-  yearPublished: '2017'
-}
-let album5 = {
-  title: 'Dynamite',
-  artist: 'Taio Cruz',
-  yearPublished: '2010'
-}
-let album6 = {
-  title: 'Donald Trump',
-  artist: 'Mac Miller',
-  yearPublished: '2010'
-}
 
 function addToCollection(collection, title, artist, yearPublished) {
-  myCollection.push(album1)
-  myCollection.push(album2)
-  myCollection.push(album3)
-  myCollection.push(album4)
-  myCollection.push(album5)
-  myCollection.push(album6)
-  return myCollection
-  
+  let newAlbum = {
+    title: title,
+    artist: artist,
+    yearPublished: yearPublished
+  }
+  collection.push(newAlbum)
+  return newAlbum
 
   
 }
-console.log(addToCollection())
+console.log(addToCollection(myCollection, 'Sucker', 'Jonas Brothers', '2019'))
+console.log(addToCollection(myCollection, 'Homecoming', 'Kanye West', '2007'))
+console.log(addToCollection(myCollection, 'Dirt On My Boots', 'Jon Pardi', '2017'))
+console.log(addToCollection(myCollection, 'Feel It Still', 'Portugal', '2017'))
+console.log(addToCollection(myCollection, 'Dynamite', 'Taio Cruz', '2010'))
+console.log(addToCollection(myCollection, 'Donald Trump', 'Mac Miller', '2010'))
 
+function showCollection(collection) {
+  collection.forEach(album => {
+    console.log(`${album.title} by ${album.artist}, published in ${album.yearPublished}`)
+  })
+}
+console.log(showCollection(myCollection))
+
+function findByArtist(collection, artist) {
+  let matches = []
+
+  for (let alb of collection){
+    if (alb.artist === artist){
+      matches.push(alb)
+    }
+  }
+  return matches
+
+}
 
 
 
